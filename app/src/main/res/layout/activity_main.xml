@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="50dp"
+    android:background="?android:attr/colorBackground">
+
+    <!-- === Top bar === -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="50dp"
+        android:paddingVertical="12dp"
+        android:background="?attr/colorSurface">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:fontFamily="@font/adlam_display"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/avatarView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/colorOutline"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/account_menu_open" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorOutlineVariant" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- === Calendar card === -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <!-- Month header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageButton
+                            android:id="@+id/btnPrevMonth"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@android:drawable/ic_media_previous"
+                            android:contentDescription="@string/prev_month" />
+
+                        <TextView
+                            android:id="@+id/tvMonth"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/mock_month"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <ImageButton
+                            android:id="@+id/btnNextMonth"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@android:drawable/ic_media_next"
+                            android:contentDescription="@string/next_month" />
+                    </LinearLayout>
+
+                    <!-- Weekday labels -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="4dp">
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Пн" android:alpha="0.6" android:textAppearance="?attr/textAppearanceLabelMedium" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Вт" android:alpha="0.6" android:textAppearance="?attr/textAppearanceLabelMedium" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Ср" android:alpha="0.6" android:textAppearance="?attr/textAppearanceLabelMedium" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Чт" android:alpha="0.6" android:textAppearance="?attr/textAppearanceLabelMedium" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Пт" android:alpha="0.6" android:textAppearance="?attr/textAppearanceLabelMedium" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Сб" android:alpha="0.6" android:textAppearance="?attr/textAppearanceLabelMedium" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Вс" android:alpha="0.6" android:textAppearance="?attr/textAppearanceLabelMedium" />
+                    </LinearLayout>
+
+                    <!-- Calendar grid (мокап Октябрь 2026) -->
+                    <GridLayout
+                        android:id="@+id/calendarGrid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="7"
+                        android:paddingTop="4dp">
+
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="1" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="2" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="3" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="4" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="5" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="6" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="7" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="8" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="9" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="10" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="11" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="12" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="13" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="14" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="15" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="16" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="17" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="18" />
+
+                        <FrameLayout android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1">
+                            <View android:layout_width="34dp" android:layout_height="34dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_day_today" />
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textAppearance="?attr/textAppearanceBodyLarge"
+                                android:textColor="?attr/colorOnPrimary"
+                                android:textStyle="bold"
+                                android:text="19" />
+                        </FrameLayout>
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="20" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="21" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="22" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="23" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="24" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="25" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="26" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="27" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="28" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="29" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="30" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" android:text="31" />
+                        <TextView android:layout_width="0dp" android:layout_height="42dp" android:layout_columnWeight="1" android:gravity="center" android:textAppearance="?attr/textAppearanceBodyLarge" />
+                    </GridLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- === Selected day info === -->
+            <TextView
+                android:id="@+id/tvSelectedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/adlam_display"
+                android:layout_marginTop="20dp"
+                android:text="@string/mock_selected_date"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+            <TextView
+                android:id="@+id/tvSelectedDayInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/adlam_display"
+                android:text="@string/mock_selected_day_info"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:alpha="0.7" />
+
+            <!-- === Action buttons === -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStartWorkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="16dp"
+                android:text="Start training"
+                android:fontFamily="@font/adlam_display"
+                app:icon="@android:drawable/ic_media_play"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:id="@+id/btnPlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="15dp"
+                android:text="@string/btn_plan"
+
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:fontFamily="@font/adlam_display"
+                    android:gravity="center"
+                    android:text="Plan"
+                    android:textSize="24dp"
+
+                    android:textStyle="normal"
+                    tools:layout_editor_absoluteX="15dp"
+                    tools:layout_editor_absoluteY="15dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

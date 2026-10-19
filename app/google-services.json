@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "822931767517",
+    "firebase_url": "https://progreog-93774-default-rtdb.firebaseio.com",
+    "project_id": "progreog-93774",
+    "storage_bucket": "progreog-93774.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822931767517:android:096dcd46da9433fae05b34",
+        "android_client_info": {
+          "package_name": "com.example.progresslog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpwG52tPToPXRs1Xe5fmMhjASNUk5Pwko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
